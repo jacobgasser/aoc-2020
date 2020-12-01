@@ -1,0 +1,52 @@
+var values = [];
+
+var sum = 0;
+
+with ("input.txt", "r") {
+    var line;
+
+    while ((line = file.readLine()) != nil) {
+        values.push(line.toNumber());
+    }
+}
+def one() {
+    var willBreak = false;
+
+    for (var i = 0; i < values.len(); ++i) {
+        for (var x = 0; x < values.len(); ++x) {
+            if (values[i] + values[x] == 2020) {
+                print("The values: " + values[i].toString() + " * " + values[x].toString() + " = " + (values[i] * values[x]).toString());
+                willBreak = true; 
+                break;
+            }
+        }
+        if (willBreak) {
+            break;
+        }
+    }
+}
+
+def two() {
+    var willBreakX = false;
+    var willBreakY = false;
+    for (var y = 0; y < values.len(); ++y) {
+        for (var i = 0; i < values.len(); ++i) {
+            for (var x = 0; x < values.len(); ++x) {
+                if (values[y] + values[i] + values[x] == 2020) {
+                    print("The values: " + values[y].toString() + " * " + values[i].toString() + " * " + values[x].toString() + " = " + (values[y] * values[i] * values[x]).toString());
+                    willBreakX = true; 
+                    willBreakY = true;
+                    break;
+                }
+            }
+            if (willBreakX) {
+                break;
+            }
+        }    
+        if (willBreakY) {
+            break;
+        }
+    }
+}
+one();
+two();
